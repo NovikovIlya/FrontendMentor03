@@ -2,45 +2,49 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-export const getData = createAsyncThunk('get/getData', async (text:string) => {
-  const { data } = await axios.get(`https://tinyurl.com/api-create.php?url=${text}`);
-  return data;
+export const getData = createAsyncThunk('get/getData', async (obj:{text:string,copyText:string}) => {
+    const { data } = await axios.get(`https://tinyurl.com/api-create.php?url=${obj.text}`);
+    return {text:data,copyText:obj.copyText};
 });
 export type initalStateType = {
-    shortUrls : string[],
-    isLoad:boolean,
-    isError:boolean
+    shortUrls: any[],
+    isLoad: boolean,
+    isError: boolean,
+    copyText: any[],
 }
 const initialState: initalStateType = {
-  shortUrls: [],
-  isLoad: true,
-  isError: false,
+    copyText: [],
+    shortUrls: [],
+    isLoad: true,
+    isError: false,
 };
 
 export const sliceData = createSlice({
-  name: 'sliceData',
-  initialState,
-  reducers: {
-    
-  },
-  extraReducers: (builder) => {
-    builder.addCase(getData.pending, (state) => {
-        
-        state.isLoad = true;
-        state.isError = false;
-      });
-      builder.addCase(getData.fulfilled, (state, action:PayloadAction<string, string>) => {
-        state.shortUrls = [...state.shortUrls,action.payload]
-        state.isLoad = false;
-        state.isError = false;
-      });
-      builder.addCase(getData.rejected, (state) => {
-      
-        state.isLoad = false;
-        state.isError = true;
-      });
-  },
+    name: 'sliceData',
+    initialState,
+    reducers: {
+        addCopyText: (state, action) => {
+            state.copyText = [...state.copyText, action.payload]
+        },
+    },
+    extraReducers: (builder) => {
+        builder.addCase(getData.pending, (state) => {
+
+            state.isLoad = true;
+            state.isError = false;
+        });
+        builder.addCase(getData.fulfilled, (state, action: any) => {
+            state.shortUrls = [...state.shortUrls, {text:action.payload.text,copyText:action.payload.copyText}]
+            state.isLoad = false;
+            state.isError = false;
+        });
+        builder.addCase(getData.rejected, (state) => {
+
+            state.isLoad = false;
+            state.isError = true;
+        });
+    },
 });
 
-export const {  } = sliceData.actions;
+export const { addCopyText} = sliceData.actions;
 export default sliceData.reducer;
