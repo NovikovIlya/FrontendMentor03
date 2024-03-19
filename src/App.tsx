@@ -16,13 +16,10 @@ function App() {
 
 
   const fetchText = async(text:any)=>{
-    const res = await axios.post('https://cleanuri.com/api/v1/shorten',{
-     data: {"url":text},
-    })
-  
-    setData(res)
+    const {data} = await axios.post(`https://tinyurl.com/api-create.php?url=${text}`)
+    setData(data)
   }
-
+  console.log(data)
   return (
     <>
       <div>
