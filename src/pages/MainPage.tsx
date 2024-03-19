@@ -12,6 +12,8 @@ function MainPage() {
   const handleInput = (e: any) => {
     setText(e.target.value)
   }
+  
+  
 
   const handleClick = () => {
     dispatch(getData({text:text,copyText:text}))
