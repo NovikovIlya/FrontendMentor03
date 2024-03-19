@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import axios from 'axios'
+import { useAppDispatch, useAppSelector } from './hooks/redux'
+import { getData } from './store/sliceUrl'
 
 function App() {
   const [data, setData] = useState(null)
   const [text,setText] = useState('')
+  const dispatch = useAppDispatch()
+  const {shortUrls} = useAppSelector((state)=>state.todoSlice)
 
   const handleInput = (e:any)=>{
     setText(e.target.value)
@@ -15,15 +18,14 @@ function App() {
   }
 
 
-  const fetchText = async(text:any)=>{
-    const {data} = await axios.post(`https://tinyurl.com/api-create.php?url=${text}`)
-    setData(data)
+  const fetchText = (text:any)=>{
+    dispatch(getData(text))
   }
-  console.log(data)
+  console.log('asd',shortUrls)
   return (
     <>
       <div>
-        <div>{data}</div>
+        {shortUrls.map((item)=>(<div key={item}>{item}</div>))}
         <input value={text} onChange={handleInput}/> 
         <button onClick={handleClick}/>
       </div>
