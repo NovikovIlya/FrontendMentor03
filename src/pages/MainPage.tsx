@@ -9,8 +9,10 @@ function MainPage() {
   const dispatch = useAppDispatch();
 
   const handleInput = (e: any) => {
-    setText(e.target.value);
-  };
+    setText(e.target.value)
+  }
+  
+  
 
   const handleClick = () => {
     dispatch(getData({ text: text, copyText: text }));
