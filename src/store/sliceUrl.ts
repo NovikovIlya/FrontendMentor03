@@ -1,14 +1,14 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getData = createAsyncThunk(
   "get/getData",
   async (obj: { text: string; copyText: string }) => {
     const { data } = await axios.get(
-      `https://tinyurl.com/api-create.php?url=${obj.text}`
+      `https://tinyurl.com/api-create.php?url=${obj.text}`,
     );
     return { text: data, copyText: obj.copyText };
-  }
+  },
 );
 export type initalStateType = {
   shortUrls: any[];
@@ -39,7 +39,7 @@ export const sliceData = createSlice({
     builder.addCase(getData.fulfilled, (state, action: any) => {
       state.shortUrls = [
         { text: action.payload.text, copyText: action.payload.copyText },
-        ...state.shortUrls,  
+        ...state.shortUrls,
       ];
       state.isLoad = false;
       state.isError = false;
