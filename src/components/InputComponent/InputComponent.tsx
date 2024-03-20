@@ -7,11 +7,15 @@ function InputComponent() {
   const [text, setText] = useState("");
   const dispatch = useAppDispatch();
 
-  const handleInput = (e: any) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
   const handleClick = () => {
+    if (text === "") {
+      alert("Please enter a link");
+      return;
+    }
     dispatch(getData({ text: text, copyText: text }));
     dispatch(addCopyText(text));
     setText("");
@@ -20,8 +24,15 @@ function InputComponent() {
   return (
     <>
       <div className={styles.container}>
-        <input className={styles.inp} value={text} onChange={handleInput} placeholder="Shorten a link here..." />
-        <button className={styles.btn} onClick={handleClick}>Shorten it!</button> 
+        <input
+          className={styles.inp}
+          value={text}
+          onChange={handleInput}
+          placeholder="Shorten a link here..."
+        />
+        <button className={styles.btn} onClick={handleClick}>
+          Shorten it!
+        </button>
       </div>
     </>
   );

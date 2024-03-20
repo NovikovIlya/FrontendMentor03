@@ -5,10 +5,10 @@ import { cutString } from "../../utils/cutString";
 
 function ItemList() {
   const { shortUrls } = useAppSelector((state) => state.sliceUrl);
-  const [arrayIndex, setArrayIndex] = useState<any>([]);
+  const [arrayIndex, setArrayIndex] = useState<number[]>([]);
 
-  const setCopyText = (text: any, index: any) => {
-    setArrayIndex([ index]);
+  const setCopyText = (text: string, index: number) => {
+    setArrayIndex([index]);
     navigator.clipboard.writeText(text);
   };
 
@@ -17,13 +17,20 @@ function ItemList() {
       {shortUrls.map((item, index) => (
         <Fragment key={index}>
           <div className={styles.miniContainer}>
-          <div className={styles.copyText} key={item.copyText}>{cutString(item.copyText,45)}</div>
-          <div className={styles.right}>
-            <div className={styles.link} key={item.text}>{item.text}</div>
-            <button className={`${styles.btn} ${arrayIndex.includes(index) ? styles.copied : styles.copy}`} onClick={() => setCopyText(item.text, index)}>
-              {arrayIndex.includes(index) ? "Copied" : "Copy"}
-            </button>
-          </div>
+            <div className={styles.copyText} key={item.copyText}>
+              {cutString(item.copyText, 45)}
+            </div>
+            <div className={styles.right}>
+              <div className={styles.link} key={item.text}>
+                {item.text}
+              </div>
+              <button
+                className={`${styles.btn} ${arrayIndex.includes(index) ? styles.copied : styles.copy}`}
+                onClick={() => setCopyText(item.text, index)}
+              >
+                {arrayIndex.includes(index) ? "Copied" : "Copy"}
+              </button>
+            </div>
           </div>
         </Fragment>
       ))}

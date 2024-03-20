@@ -18,7 +18,6 @@ function MainPage() {
         <Statics />
       </div>
       <Footer />
-
       <Bottom />
     </div>
   );
