@@ -1,7 +1,8 @@
 .container{
     background-color: #232027;
    
-    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -15,10 +16,35 @@
 }
 .right{
     display: flex;
+    gap: 40px;
 }
 .list{
     display: flex;
+    gap: 40px;
+    color: white;
+}
+.listItem{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .logo{
     width: 100px;
+    height: 30px;
+}
+.social{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.icon{
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .miniContainer,.right{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }

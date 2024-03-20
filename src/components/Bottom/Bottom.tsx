@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./Bottom.module.css";
 import logo from "../../assets/logo.svg";
 import instagram from "../../assets/icon-instagram.svg";
@@ -13,19 +12,19 @@ const Bottom = () => {
 
         <div className={styles.right}>
           <div className={styles.list}>
-            <div>
+            <div className={styles.listItem}>
               <div>Features</div>
               <div>Link Shortening</div>
               <div>Branded Links</div>
               <div>Analytics</div>
             </div>
-            <div>
-              <div>Resources</div>
+            <div className={styles.listItem}>
+              <div >Resources</div>
               <div>Blog</div>
               <div>Developers</div>
               <div>Support</div>
             </div>
-            <div>
+            <div className={styles.listItem}>
               <div>Company</div>
               <div>About</div>
               <div>Our Team</div>
@@ -34,10 +33,10 @@ const Bottom = () => {
             </div>
           </div>
 
-          <div>
-            <img src={instagram} />
-            <img src={pintrest} />
-            <img src={twitter} />
+          <div className={styles.social}>
+            <img className={styles.icon} src={instagram} />
+            <img className={styles.icon} src={pintrest} />
+            <img className={styles.icon} src={twitter} />
           </div>
         </div>
       </div>

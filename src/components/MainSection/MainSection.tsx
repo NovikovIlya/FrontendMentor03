@@ -5,12 +5,12 @@ import globalStyles from '../../global.module.css'
 const MainSection = () => {
   return (
     <div className={styles.container}>
-        <div>
-            <h1>More than just shorter links</h1>
-            <div>Build your brands recognition and get detailed insights on how your links are performing.</div>
-            <button className={globalStyles.sign}>Get Started</button>
+        <div className={styles.containerChildOne}>
+            <h1 className={styles.head}>More than just shorter links</h1>
+            <div className={styles.text}>Build your brands recognition and get detailed insights on how your links are performing.</div>
+            <div className={styles.btnParent}><button className={globalStyles.sign}>Get Started</button></div>
         </div>
-        <div>
+        <div className={styles.containerChildTwo}>
             <img className={styles.images} src={image} alt='work'/>
         </div>
     </div>

@@ -2,8 +2,11 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 .MiniContainer {
+  margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -34,6 +37,7 @@
 .blocks {
   background-color: white;
   border-radius: 4px;
+  padding: 20px;
 }
 .head{
     text-align: center;
@@ -41,4 +45,22 @@
 .header{
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 10px;
+}
+.icon{
+  padding: 10px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: black;
+  margin-top: -50px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.headText{
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.text{
+  color:gray;
 }

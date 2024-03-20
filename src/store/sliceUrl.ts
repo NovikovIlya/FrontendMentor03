@@ -38,8 +38,8 @@ export const sliceData = createSlice({
     });
     builder.addCase(getData.fulfilled, (state, action: any) => {
       state.shortUrls = [
-        ...state.shortUrls,
         { text: action.payload.text, copyText: action.payload.copyText },
+        ...state.shortUrls,  
       ];
       state.isLoad = false;
       state.isError = false;

@@ -6,16 +6,19 @@ const Header = () => {
   return (
     <nav className={styles.container}>
       <div className={styles.left}>
-        <div><img src={logo} alt="logo"/></div>
+        <img src={logo} alt="logo"/>
         <div className={styles.nav}>
-          <div>Features</div>
-          <div>Pricing</div>
-          <div>Resources</div>
+          <div className={styles.navItem}>Features</div>
+          <div className={styles.navItem}>Pricing</div>
+          <div className={styles.navItem}>Resources</div>
         </div>
       </div>
+      <div className={styles.menu}>
+        <img className={styles.menuChild} src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="menu"/>
+      </div>
       <div className={styles.right}>
-        <div>Login</div>
-        <button className={globalStyles.sign}>Sign Up</button>
+        <div className={styles.text}>Login</div>
+        <button className={`${styles.text} ${globalStyles.sign}`}>Sign Up</button>
       </div>
     </nav>
   );

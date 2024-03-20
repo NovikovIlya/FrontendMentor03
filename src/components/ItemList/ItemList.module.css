@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  
+}
+.miniContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    align-items: center;
+}
+.right{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.copyText{
+    font-weight: bold;
+}
+.link{
+    font-weight: bold;
+    color:aqua
+}
+.btn{
+    color:white;
+    width: 65px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.copy{
+    background-color: #2AD1D1;
+    
+}
+.copy:hover{
+    background-color: #21b5b5;
+}
+.copied{
+    background-color: #362D52;
+   
+}
+@media screen and (max-width: 768px) {
+    .miniContainer{
+        font-size: 7px;
+    }
+    
+}
