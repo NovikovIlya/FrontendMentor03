@@ -1,34 +1,26 @@
-import { useState } from "react";
-
-import { useAppDispatch } from "../hooks/redux";
-import { addCopyText, getData } from "../store/sliceUrl";
-import ItemList from "../components/InputComponent/ItemList";
+import ItemList from "../components/ItemList/ItemList";
+import InputComponent from "../components/InputComponent/InputComponent";
+import styles from "./MainPage.module.css";
+import Header from "../components/Header/Header";
+import MainSection from "../components/MainSection/MainSection";
+import Statics from "../components/Statistics/Statics";
+import Footer from "../components/Footer/Footer";
+import Bottom from "../components/Bottom/Bottom";
 
 function MainPage() {
-  const [text, setText] = useState("");
-  const dispatch = useAppDispatch();
-
-  const handleInput = (e: any) => {
-    setText(e.target.value)
-  }
-  
-  
-
-  const handleClick = () => {
-    dispatch(getData({ text: text, copyText: text }));
-    dispatch(addCopyText(text));
-    setText("");
-  };
-
   return (
-    <>
-      <div>
-        <input value={text} onChange={handleInput} />
-        <button onClick={handleClick} />
-
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <Header />
+        <MainSection />
+        <InputComponent />
         <ItemList />
+        <Statics />
       </div>
-    </>
+      <Footer />
+
+      <Bottom />
+    </div>
   );
 }
 

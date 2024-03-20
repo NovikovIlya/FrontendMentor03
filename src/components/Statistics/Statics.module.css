@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.MiniContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one . ."
+    "one two ."
+    "one two three"
+    "one two three"
+    "one two three"
+    "one two three"
+    ". two three"
+    ". . three";
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+.blocks {
+  background-color: white;
+  border-radius: 4px;
+}
+.head{
+    text-align: center;
+}
+.header{
+    font-size: 30px;
+    font-weight: bold;
+}

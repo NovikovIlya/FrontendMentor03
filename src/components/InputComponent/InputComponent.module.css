@@ -1,0 +1,18 @@
+.container{
+    background-image: url('../../assets/bg-boost-desktop.svg');
+    background-color: #3A3053;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 30px;
+}
+.inp{
+    width: 85%;
+    padding: 10px;
+}
+.btn{
+    width: 15%;
+}

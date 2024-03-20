@@ -1,0 +1,24 @@
+.container{
+    background-color: #232027;
+   
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.miniContainer{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.right{
+    display: flex;
+}
+.list{
+    display: flex;
+}
+.logo{
+    width: 100px;
+}
